@@ -20,24 +20,28 @@ const QuestionComponent = ({
     noLabels,
     yesLabels,
 }: QuestionProps) => {
-    const yesScale = Math.min(1 + noCount * 0.15, 2.5);
+    const yesLabelIndex = Math.min(noCount, yesLabels.length - 1);
+    const sizeScale = 1 + noCount * 0.75;
 
     return (
-        <div>
-            <img src={please} alt="please" />
-            <h1>Will you be my valentine?</h1>
+        <div className="question">
+            <img className="question-image" src={please} alt="please" />
+            <h1 className="question-title">Will you be my valentine?</h1>
+            <div className="question-buttons">
+                <button
+                    key={noCount}
+                    style={{
+                        fontSize: `${sizeScale}em`,
+                    }}
+                    onClick={onYesClick}
+                >
+                    {yesLabels[yesLabelIndex]}
+                </button>
 
-            <button
-                className="yes-button"
-                style={{ transform: `scale(${yesScale})` }}
-                onClick={onYesClick}
-            >
-                {yesLabels[Math.min(noCount, yesLabels.length - 1)]}
-            </button>
-
-            <button onClick={() => setNoCount((c) => c + 1)}>
-                {noLabels[Math.min(noCount, noLabels.length - 1)]}
-            </button>
+                <button onClick={() => setNoCount((count) => count + 1)}>
+                    {noLabels[Math.min(noCount, noLabels.length - 1)]}
+                </button>
+            </div>
         </div>
     );
 };
@@ -45,15 +49,7 @@ const QuestionComponent = ({
 function App() {
     const [noCount, setNoCount] = useState(0);
 
-    const yesLabels = [
-        "Yes",
-        "Absolutely!",
-        "Of course!",
-        "Yes, yes, yes!",
-        "Definitely!",
-        "Without a doubt!",
-        "Yes"
-    ];
+    const yesLabels = ["Yes"];
     const noLabels = [
         "No",
         "Are you sure?",
@@ -61,6 +57,9 @@ function App() {
         "Please reconsider!",
         "Give it another thought!",
         "Last chance!",
+        "서운해ㅠㅠ",
+        "ㅠㅠㅠㅠㅠㅠㅠㅠ",
+        "ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ",
         "Please say yes!",
     ];
 
