@@ -21,7 +21,7 @@ const QuestionComponent = ({
     yesLabels,
 }: QuestionProps) => {
     const yesLabelIndex = Math.min(noCount, yesLabels.length - 1);
-    const sizeScale = 1 + noCount * 0.75;
+    const sizeScale = 1 + noCount * 0.8;
 
     return (
         <div className="question">
