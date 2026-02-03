@@ -7,7 +7,7 @@ import type { QuestionProps } from "./types/app.types";
 const YesComponent = () => {
     return (
         <div>
-            <img src={yay} alt="yay" />
+            <img className="yes-image" src={yay} alt="yay" />
             <h2>Yay! I'm so happy!</h2>
         </div>
     );
