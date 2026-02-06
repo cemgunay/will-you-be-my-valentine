@@ -8,7 +8,7 @@ const YesComponent = () => {
     return (
         <div>
             <img className="yes-image" src={yay} alt="yay" />
-            <h2>Yay! I'm so happy!</h2>
+            <h2>Yay!!!!!!!!!!!</h2>
         </div>
     );
 };
